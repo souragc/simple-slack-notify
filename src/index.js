@@ -26,7 +26,7 @@ try {
   const username = envsubst(core.getInput('username'))
   const status = envsubst(core.getInput('status'))
   let text = core.getInput('success_text')
-  console.log(text)
+  throw new Error(text)
   const successText = envsubst(text)
   const failureText = envsubst(core.getInput('failure_text'))
   const cancelledText = envsubst(core.getInput('cancelled_text'))
