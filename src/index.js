@@ -15,7 +15,7 @@ try {
   if (!process.env.SLACK_WEBHOOK_URL) {
     throw new Error('SLACK_WEBHOOK_URL is not set!')
   }
-  // const slack = new IncomingWebhook(process.env.SLACK_WEBHOOK_URL)
+  const slack = new IncomingWebhook(process.env.SLACK_WEBHOOK_URL)
 
   /* eslint-disable no-eval */
   const disableEval = !!core.getInput('disable_eval')
@@ -25,7 +25,9 @@ try {
   const channel = envsubst(core.getInput('channel'))
   const username = envsubst(core.getInput('username'))
   const status = envsubst(core.getInput('status'))
-  const successText = envsubst(core.getInput('success_text'))
+  let text = core.getInput('success_text')
+  console.log(text)
+  const successText = envsubst(text)
   const failureText = envsubst(core.getInput('failure_text'))
   const cancelledText = envsubst(core.getInput('cancelled_text'))
   const fields = JSON.parse(envsubst(core.getInput('fields')) || '[]')
