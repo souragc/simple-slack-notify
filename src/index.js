@@ -16,7 +16,7 @@ try {
     throw new Error('SLACK_WEBHOOK_URL is not set!')
   }
   const slack = new IncomingWebhook(process.env.SLACK_WEBHOOK_URL)
-
+sadasdasdasd
   /* eslint-disable no-eval */
   const disableEval = !!core.getInput('disable_eval')
   const env = process.env // eslint-disable-line
